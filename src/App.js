@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Movie from './Components/Movie';
+import { FEATURED_API } from "./variables";
+import { SEARCH_API } from "./variables";
 
-const FEATURED_API =
-  'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
-const SEARCH_API =
-  'https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -19,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="movie-container">
       {movies && movies.map((movie) => <Movie key={movie.id} {...movie} />)}
     </div>
   );
